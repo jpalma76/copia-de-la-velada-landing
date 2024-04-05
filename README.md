@@ -52,3 +52,15 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## 🕔 Calcular la diferencia horaria
+Se saca colocando GMT en vez de hora local
+
+quedando el cálculo de la siguiente manera:
+ // Get current timezone
+        const tzOffset = (d.getTimezoneOffset()/60) * -1
+        console.log(tzOffset);
+        const gmt = `GMT${tzOffset}`
+
+        const selfScript = document.currentScript;
+        selfScript.parentNode.innerHTML = `${date}H ${gmt}`;
