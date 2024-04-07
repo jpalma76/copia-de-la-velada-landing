@@ -1,1 +1,48 @@
-<h2>Countdown</h2>
+---
+import LaVeladaIcon from "@/icons/LaVeladaIcon.astro"
+
+const TIMESTAMP_END = 1709578800000;
+console.log(TIMESTAMP_END);
+
+---
+
+<section class="my-32 flex flex-col gap-y-10 justify-center items-center">
+  <LaVeladaIcon class="text-primary" />
+  
+  <div data-date={TIMESTAMP_END}>
+    
+    <div data-days>
+      <span>00</span>
+      <span>Días</span>
+    </div>
+
+    <div data-hours>
+      <span>00</span>
+      <span>Horas</span>
+    </div>
+
+    <div data-minutes>
+      <span>00</span>
+      <span>Minutos</span>
+    </div>
+
+    <div data-seconds>
+      <span>00</span>
+      <span>Segundos</span>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const SECOND = 1000
+  const MINUTE = SECOND * 60
+  const HOUR = MINUTE * 60
+  const DAY = HOUR * 24
+
+  function init() {
+    const $countdown = document.querySelector('[data-date]')
+    
+  }
+
+</script>
