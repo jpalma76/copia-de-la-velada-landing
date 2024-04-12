@@ -1,37 +1,35 @@
 ---
 import LaVeladaIcon from "@/icons/LaVeladaIcon.astro"
 
-const TIMESTAMP_END = 1709578800000;
-console.log(TIMESTAMP_END);
-
+const TIMESTAMP_END = 1729739220000
 ---
 
 <section class="my-32 flex flex-col gap-y-10 justify-center items-center">
-  <LaVeladaIcon class="text-primary" />
+  <LaVeladaIcon />
   
   <div data-date={TIMESTAMP_END}>
-    
-    <div data-days>
-      <span>00</span>
+
+    <div>
+      <span data-days>00</span>
       <span>Días</span>
     </div>
 
-    <div data-hours>
-      <span>00</span>
+    <div>
+      <span data-hours>00</span>
       <span>Horas</span>
     </div>
 
-    <div data-minutes>
-      <span>00</span>
+    <div>
+      <span data-minutes>00</span>
       <span>Minutos</span>
     </div>
 
-    <div data-seconds>
-      <span>00</span>
+    <div>
+      <span data-seconds>00</span>
       <span>Segundos</span>
     </div>
-
   </div>
+  <span>...para mi cumpleaños</span>
 </section>
 
 <script>
@@ -42,7 +40,38 @@ console.log(TIMESTAMP_END);
 
   function init() {
     const $countdown = document.querySelector('[data-date]')
-    
-  }
+    if(!$countdown) return
 
+    const $days = document.querySelector('[data-days]')
+    const $hours = document.querySelector('[data-hours]')
+    const $minutes = document.querySelector('[data-minutes]')
+    const $seconds = document.querySelector('[data-seconds]')
+
+    const timestamp = $countdown.getAttribute('data-date')
+    if (!timestamp) return
+
+    const date = new Date(+timestamp).getTime()
+    
+    function updateCountdown() {
+      const now = Date.now()
+      console.log(date);
+      const diff = date - now
+      
+      if ($days instanceof HTMLElement) {
+        $days.innerText = Math.floor(diff / DAY).toString();
+      }
+      if ($hours instanceof HTMLElement) {
+        $hours.innerText = Math.floor(diff % DAY / HOUR).toString();
+      }
+      if ($minutes instanceof HTMLElement) {
+        $minutes.innerText = Math.floor(diff % HOUR / MINUTE).toString();
+      }
+      if ($seconds instanceof HTMLElement) {
+        $seconds.innerText = Math.floor(diff % MINUTE / SECOND).toString();
+      }
+    }
+
+    setInterval(updateCountdown, SECOND)
+  }
+  init()
 </script>

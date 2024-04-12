@@ -64,3 +64,5 @@ quedando el cálculo de la siguiente manera:
 
         const selfScript = document.currentScript;
         selfScript.parentNode.innerHTML = `${date}H ${gmt}`;
+
+Para sacar el cáculo de la fecha de mi cumpleaños se considera la hora local porque el evento en si es en mi pais pero está para que se pueda ver a la hora correspondiente en cada parte del mundo
