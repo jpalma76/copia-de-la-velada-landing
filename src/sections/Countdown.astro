@@ -7,29 +7,38 @@ const TIMESTAMP_END = 1729739220000
 <section class="my-32 flex flex-col gap-y-10 justify-center items-center">
   <LaVeladaIcon />
   
-  <div data-date={TIMESTAMP_END}>
+  <div class="flex flex-row gap-x-2 text-primary uppercase font-semibold" data-date={TIMESTAMP_END}>
 
-    <div>
-      <span data-days>00</span>
-      <span>Días</span>
+    <div class="flex flex-col justify-center items-center gap-y-2 w-16">
+      <span class="text-3xl tabular-nums text-center" data-days></span>
+      <span class="text-xs text-center">Días</span>
     </div>
 
-    <div>
-      <span data-hours>00</span>
-      <span>Horas</span>
+    <span aria-hidden="true" class="mt-1 text-xl">:</span>
+
+    <div class="flex flex-col justify-center items-center gap-y-2 w-16">
+      <span class="text-3xl tabular-nums text-center" data-hours></span>
+      <span class="text-xs text-center">Horas</span>
     </div>
 
-    <div>
-      <span data-minutes>00</span>
-      <span>Minutos</span>
+    <span aria-hidden="true" class="mt-1 text-xl">:</span>
+
+    <div class="flex flex-col justify-center items-center gap-y-2 w-16">
+      <span class="text-3xl tabular-nums text-center" data-minutes></span>
+      <span class="text-xs text-center">Minutos</span>
     </div>
 
-    <div>
-      <span data-seconds>00</span>
-      <span>Segundos</span>
+    <span aria-hidden="true" class="mt-1 text-xl">:</span>
+
+    <div class="flex flex-col justify-center items-center gap-y-2 w-16">
+      <span class="text-3xl tabular-nums text-center" data-seconds></span>
+      <span class="text-xs text-center">Segundos</span>
     </div>
+
   </div>
-  <span>...para mi cumpleaños</span>
+
+  <span aria-hidden="true" class="mt-1 text-xl italic">...para mi cumpleaños 🥳🥳🥳</span>
+
 </section>
 
 <script>
@@ -54,7 +63,7 @@ const TIMESTAMP_END = 1729739220000
     
     function updateCountdown() {
       const now = Date.now()
-      console.log(date);
+
       const diff = date - now
       
       if ($days instanceof HTMLElement) {
