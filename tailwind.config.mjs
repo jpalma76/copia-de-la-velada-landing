@@ -6,8 +6,9 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'primary': '#333',
-				'secondary': '#ddd'
+				"primary": '#333',
+				"secondary": '#ddd',
+				"twitch": '#6441a4'
 			}
 		},
 	},
